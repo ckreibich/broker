@@ -196,15 +196,11 @@ macos_monterey_task:
 # FreeBSD EOL timelines: https://www.freebsd.org/security/#sup
 freebsd14_task:
   freebsd_instance:
-    # We don't support FreeBSD 14 yet, this is a purely informative task
-    image_family: freebsd-14-0-snap
+    # FreeBSD 14 EOL: Nov 30 2028
+    image_family: freebsd-14-0
     cpu: 8
     # Not allowed to request less than 8GB for an 8 CPU FreeBSD VM.
     memory: 8GB
-
-    allow_failures: true
-    skip_notification: true
-
   prepare_script: ./ci/freebsd/prepare.sh
   << : *CI_TEMPLATE
   << : *UNIX_ENV
@@ -222,8 +218,8 @@ freebsd13_task:
 
 freebsd12_task:
   freebsd_instance:
-    # FreeBSD 12 EOL: June 30, 2024
-    image_family: freebsd-12-2
+    # FreeBSD 12 EOL: Dec 31, 2023
+    image_family: freebsd-12-4
     cpu: 8
     # Not allowed to request less than 8GB for an 8 CPU FreeBSD VM.
     memory: 8GB
